@@ -1,0 +1,51 @@
+<div class="auth-page">
+  <div class="auth-container">
+    <div class="auth-form-container">
+      <div class="auth-logo">
+        <%= image_tag 'medical_logo.png', class: 'img-fluid' %>
+      </div>
+      <h2 class="auth-title">Join MediPortal</h2>
+      <p class="auth-subtitle">Create your account to get started</p>
+
+      <% if resource.errors.any? %>
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+          <h4 class="alert-heading">Please correct the following errors:</h4>
+          <ul>
+            <% resource.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+          <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+      <% end %>
+
+      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: 'auth-form' }) do |f| %>
+        <div class="form-group">
+          <%= f.email_field :email, autofocus: true, autocomplete: "email", class: 'form-control', placeholder: 'Email' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password, autocomplete: "new-password", class: 'form-control', placeholder: 'Password (6 characters minimum)' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.password_field :password_confirmation, autocomplete: "new-password", class: 'form-control', placeholder: 'Confirm Password' %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :role, "Role" %>
+          <%= f.select :role, options_for_select([['Doctor', 'doctor'], ['Receptionist', 'receptionist']]), {}, class: 'form-control' %>
+        </div>
+
+        <%= f.submit "Sign up", class: 'btn btn-primary btn-block' %>
+      <% end %>
+
+      <div class="auth-links">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+    <div class="auth-image">
+      <%= image_tag 'medical_professionals.png', class: 'img-fluid' %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,61 @@
+<h1 class="mb-4">Dashboard</h1>
+
+<div class="dashboard-stats">
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-users" style="color:#0DCAF0;"></i>
+    </div>
+    <div class="stat-value"><%= @patients.count %></div>
+    <div class="stat-label">Total Patients</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-calendar-check"style="color:#FFC107;"></i>
+    </div>
+    <div class="stat-value"><%= Appointment.count %></div>
+    <div class="stat-label">Total Appointments</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-icon">
+      <i class="fas fa-user-plus" style="color:#DC3545;"></i>
+    </div>
+    <div class="stat-value"><%= @patients.where('created_at >= ?', 1.week.ago).count %></div>
+    <div class="stat-label">New Patients (Last 7 days)</div>
+  </div>
+</div>
+
+<% if current_user.doctor? %>
+  <div class="card chart-container mb-4">
+    <div class="card-body">
+      <h2 class="card-title">Patient Registration Trend</h2>
+    </div>
+    <div style="margin_top:-3vh;">
+    <%= column_chart @patient_count_by_day %>
+    </div>
+    
+
+  </div>
+
+  
+<% end %>
+
+
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h2 class="mb-0">Recent Patients</h2>
+    <%= link_to 'View All', patients_path, class: 'btn btn-primary btn-sm' %>
+  </div>
+  <div class="card-body">
+    <ul class="list-group list-group-flush">
+      <% @patients.order(created_at: :desc).limit(5).each do |patient| %>
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%= link_to patient.name, patient_path(patient), class: 'text-decoration-none' %>
+          <span class="badge bg-primary rounded-pill"><%= time_ago_in_words(patient.created_at) %> ago</span>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+
+

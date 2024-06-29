@@ -1,0 +1,43 @@
+@import "bootstrap";
+
+body {
+  padding-top: 60px;
+  background-color: #f8f9fa;
+}
+
+.navbar {
+  background-color: #3498db;
+}
+
+.navbar-brand, .nav-link {
+  color: white !important;
+}
+
+.container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.btn-primary {
+  background-color: #3498db;
+  border-color: #3498db;
+}
+
+.btn-danger {
+  background-color: #e74c3c;
+  border-color: #e74c3c;
+}
+
+.table {
+  background-color: white;
+}
+
+.chart-container {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}

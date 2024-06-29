@@ -1,0 +1,49 @@
+<%= form_with(model: [@patient, @appointment], local: true, class: 'mb-3') do |form| %>
+  <% if @appointment.errors.any? %>
+    <div class="alert alert-danger">
+      <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+
+      <ul>
+        <% @appointment.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <div class="card">
+      <div class="card-header">
+        <h1 class="mb-0">New Appointment for <%= @patient.name %></h1>
+      </div>
+      <div class="card-body">
+        <%= form_with(model: [@patient, @appointment], local: true, class: 'appointment-form') do |form| %>
+          <% if @appointment.errors.any? %>
+            <div class="alert alert-danger">
+              <h2><%= pluralize(@appointment.errors.count, "error") %> prohibited this appointment from being saved:</h2>
+              <ul>
+                <% @appointment.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="mb-3">
+            <%= form.label :appointment_date, class: 'form-label' %>
+            <%= form.datetime_select :appointment_date, class: 'form-select' %>
+          </div>
+
+          <div class="d-grid gap-2">
+            <%= form.submit "Schedule Appointment", class: 'btn btn-primary' %>
+            <%= link_to 'Cancel', @patient, class: 'btn btn-secondary' %>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+  <div class="actions" style="padding:0 4px 4px;">
+    <%= form.submit class: 'btn btn-primary' %>
+  </div>
+<% end %>
+
+<%= link_to 'Back', @patient, class: 'btn btn-secondary' %>
