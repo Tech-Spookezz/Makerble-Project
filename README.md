@@ -1,4 +1,6 @@
-![MediPortal Logo](app/assets/images/medical_logo.png)
+<p align="center">
+  <img src="app/assets/images/medical_logo.png" alt="MediPortal Logo" width="200">
+</p>
 
 # MediPortal - Advanced Medical Management System
 
