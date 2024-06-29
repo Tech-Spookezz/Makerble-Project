@@ -108,6 +108,7 @@ For full API documentation, please refer to the [API Guide](API_GUIDE.md).
 Run the test suite with:
 ```bash
 rspec
+```
 
 ## Deployment
 
