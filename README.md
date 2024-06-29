@@ -1,4 +1,4 @@
-![MediPortal Logo](https://your-image-hosting-url.com/medical_logo.png)
+![MediPortal Logo](app/assets/images/medical_logo.png)
 
 # MediPortal - Advanced Medical Management System
 
@@ -12,11 +12,7 @@
 7. [API Documentation](#api-documentation)
 8. [Testing](#testing)
 9. [Deployment](#deployment)
-10. [Contributing](#contributing)
-11. [License](#license)
-12. [Contact](#contact)
 
----
 
 ## Introduction
 
@@ -24,18 +20,18 @@ MediPortal is a cutting-edge medical management system designed to streamline pa
 
 ## Features
 
-- **User Authentication**: Secure login system for receptionists and doctors.
-- **Role-Based Access Control**: Different functionalities for receptionists and doctors.
-- **Patient Management**: 
+- **🔒 User Authentication**: Secure login system for receptionists and doctors.
+- **🔑 Role-Based Access Control**: Different functionalities for receptionists and doctors.
+- **🩺 Patient Management**: 
   - Register new patients
   - View and edit patient information
   - Delete patient records (with proper authorization)
-- **Appointment Scheduling**: Create and manage patient appointments.
-- **Dashboard**: 
+- **📅 Appointment Scheduling**: Create and manage patient appointments.
+- **📊 Dashboard**: 
   - Visual representation of patient registration trends
   - Quick overview of recent patients
-- **Responsive Design**: Fully responsive web design for seamless use on various devices.
-- **Dark Mode**: Toggle between light and dark themes for comfortable viewing.
+- **📱 Responsive Design**: Fully responsive web design for seamless use on various devices.
+- **🌙 Dark Mode**: Toggle between light and dark themes for comfortable viewing.
 
 ## Technologies Used
 
@@ -110,3 +106,22 @@ For full API documentation, please refer to the [API Guide](API_GUIDE.md).
 Run the test suite with:
 ```bash
 rspec
+
+## Deployment
+
+1. Create new Heroku App:
+    ```bash
+    heroku create
+    ```
+
+2. Push to Heroku:
+    ```bash
+    git push heroku main
+    ```
+
+3. Seed the database (optional):
+    ```bash
+    heroku run rails db:seed
+    ```
+## Contact
+For support or queries, please contact us at 📧 bhavishreddy007@gmail.com.
